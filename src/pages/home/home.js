@@ -1,16 +1,21 @@
 import React from 'react'
 import Banner from '../../components/banner/Banner'
 import Card from '../../components/cards/Card'
-function home() {
+
+function home(props) {
+  //const {loading}=props.data;
   return (
     <>
-    <div className="flex flex-row flex-wrap w-screen justify-between">
-      
-    <Banner/>
+    <div className="flex flex-row flex-wrap w-screen justify-between overflow-x-hidden">
+       <Banner/>
 <Card/>
+
     </div>
     </>
   )
 }
 
-export default home
+
+
+
+export default home;
