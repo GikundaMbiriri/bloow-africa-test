@@ -40,7 +40,7 @@ const unlikeSong=(song)=>{
 }
   return (
     <>
-    <div className='md:w-2/5 pr-5 pt-5 m-auto w-5/6 overflow-x-hidden'>
+    <div className='md:w-2/5 pr-5 pt-5 m-auto w-11/12 overflow-x-hidden'>
         <h1 className='text-2xl font-bold pb-3 text-center text-yellow-600'>Cool Songs</h1>
         {songs[0]?songs.map((song)=>
   <AudioPlayer

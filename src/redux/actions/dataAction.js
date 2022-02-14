@@ -4,7 +4,7 @@ import {
     LIKE_SONG,
     UNLIKE_SONG,
     CLEAR_ERRORS,
-  
+  LOADING_UI,
     CLEAR_DATA,
   } from "../types";
   import axios from "axios";
@@ -66,13 +66,13 @@ import {
     dispatch({ type: CLEAR_DATA });
   };
   export const uploadSong = (formData,history) => (dispatch) => {
+dispatch({type:LOADING_DATA});
     axios
       .post(
         "https://us-central1-safarixpertsapp.cloudfunctions.net/api/uploadsong",
         formData
       )
       .then(() => {
-        console.log(formData);
         history.push('/');
 
       })

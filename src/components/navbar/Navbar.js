@@ -1,20 +1,49 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { UploadIcon, MenuIcon, XIcon,UserIcon } from '@heroicons/react/outline'
+import { useState } from 'react'
+import { Disclosure} from '@headlessui/react'
+import {  MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from "react-router-dom";
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Upload', href: '/#/upload', current: false },
-  { name: 'Login', href: '/#/login', current: false },
-  { name: 'Register', href: '/#/register', current: false },
-
-]
+import { logoutUser } from "../../redux/actions/userAction";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+function Navbar(props) {
+  const { authenticated,credentials } = props.user;
+
+const [home,setHome]=useState(true);
+const [upload,setUpload]=useState(false);
+const [login,setLogin]=useState(false);
+const [register,setRegister]=useState(false);
+
+const homeClick=()=>{
+  setHome(true)
+  setUpload(false)
+  setLogin(false)
+  setRegister(false)
+}
+const uploadClick=()=>{
+  setHome(false)
+  setUpload(true)
+  setLogin(false)
+  setRegister(false)
+}
+const loginClick=()=>{
+  setHome(false)
+  setUpload(false)
+  setLogin(true)
+  setRegister(false)
+}
+const registerClick=()=>{
+  setHome(false)
+  setUpload(false)
+  setLogin(false)
+  setRegister(true)
+}
+
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -39,104 +68,122 @@ export default function Navbar() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
+                  
+                      <Link
+                      
+                        to='/#/'
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          home ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                       onClick={homeClick}
                       >
-                        {item.name}
-                      </a>
-                    ))}
+                      Home
+                      </Link>
+                      <Link
+                      
+                        to='/upload'
+                        className={classNames(
+                          upload ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-sm font-medium'
+                        )}
+                        onClick={uploadClick}
+
+                      >
+                      Upload
+                      </Link>
+                     {!authenticated?<> <Link
+                      
+                        to='/login'
+                        className={classNames(
+                          login ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-sm font-medium'
+                        )}
+                        onClick={loginClick}
+
+                      >
+                      Login
+                      </Link>
+                      <Link
+                      
+                        to='/register'
+                        className={classNames(
+                          register ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-sm font-medium'
+                        )}
+                        onClick={registerClick}
+
+                      >
+                     Register
+                      </Link></>:<></>
+                 }
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex align-center items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              {authenticated?<div className="absolute inset-y-0 right-0 flex align-center items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          
+
+                                                <h1 className='text-sm font-bold pb-3 pr-3 text-center text-white'>{credentials.username}</h1>
+
+                                                <button
+                  type="button" onClick={props.logoutUser}
+                  className="bg-gray-800 p-1 text-sm font-bold pb-3 text-yellow-600 hover:text-white "
                 >
-                  <span className="sr-only">Upload Song</span>
-                  <UploadIcon className="h-6 w-6" aria-hidden="true" />
+                                                Logout
                 </button>
-
-                {/* Profile dropdown */}
-                <Menu as="div" className="ml-3 relative">
-                  <div>
-                    <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                      
-                   
-                                       <h1 className='text-sm font-bold pb-3 text-center text-white'>Gikunda</h1>
-
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              </div>
+              </div>:<></>}
             </div>
           </div>
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+             
                 <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
+                 
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    home ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                 
                 >
-                  {item.name}
+                  <Link to='/#/'  onClick={homeClick}>
+                 Home</Link>
                 </Disclosure.Button>
-              ))}
+                <Disclosure.Button
+               
+                  className={classNames(
+                    upload ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block px-3 py-2 rounded-md text-base font-medium'
+                  )}
+                
+                >
+                  <Link   to='/upload'   onClick={uploadClick}>
+                 Upload</Link>
+                </Disclosure.Button>
+             { !authenticated?<>  <Disclosure.Button
+                
+                  className={classNames(
+                    login ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block px-3 py-2 rounded-md text-base font-medium'
+                  )}
+                 
+                >
+                <Link   to='/login'  onClick={loginClick}>
+                 Login</Link>
+                </Disclosure.Button>
+                <Disclosure.Button
+               
+                  className={classNames(
+                    register ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'block px-3 py-2 rounded-md text-base font-medium'
+                  )}
+                 
+                >
+                   <Link    to='/register'  onClick={registerClick}>
+                   Register</Link>
+               
+                </Disclosure.Button></>:<></>}
+           
             </div>
           </Disclosure.Panel>
         </>
@@ -144,3 +191,18 @@ export default function Navbar() {
     </Disclosure>
   )
 }
+Navbar.propTypes = {
+  logoutUser:PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  user: state.user,
+  
+});
+const mapActionsToProps = {
+  logoutUser,
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(Navbar);

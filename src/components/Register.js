@@ -5,12 +5,16 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userAction";
 import { withRouter } from 'react-router-dom';
-
+import {Loading} from './Loading';
 function Register(props) {
+const {errors}=props.UI;
+
     const [email,setEmail]=useState('');
     const [username,setUsername]=useState('');
     const [password,setPassword]=useState('');
     const [confirmPassword ,setCpassword]=useState('');
+    const {loading}=props.UI;
+  
     const handleSubmit=()=>{
       
 
@@ -27,7 +31,7 @@ function Register(props) {
     <div className='w-4/5 md:w-1/3 shadow-2xl mx-auto mb-10 mt-5'>
 <UserAddIcon className="h-12 w-12 mx-auto"/>
 <h1 className='text-2xl font-bold pb-3 text-center text-dark-blue'>Register Here</h1>
-<h1 className='text-center text-lg'>Remember Everything important</h1>
+<h1 className='text-center text-lg'>Complete this form correctly</h1>
 <div className="flex flex-col justify-center ml-8">
 <div className="mb-3 xl:w-96">
     <label for="exampleEmail0" className="form-label inline-block mb-2 text-gray-700"
@@ -56,6 +60,8 @@ function Register(props) {
       id="exampleEmail0"
       placeholder="Username input"
     />
+              <h2 className='text-center text-md text-red-600'>{errors?errors.username:''}</h2>
+
   </div>
   <div className="mb-3 xl:w-96">
     <label for="exampleEmail0" className="form-label inline-block mb-2 text-gray-700"
@@ -85,6 +91,8 @@ function Register(props) {
       onChange={(event)=>setEmail(event.target.value)}
       placeholder="Email input"
     />
+              <h2 className='text-center text-md text-red-600'>{errors?errors.email:''}</h2>
+
   </div>
   <div className="mb-3 xl:w-96">
     <label for="examplePassword0" className="form-label inline-block mb-2 text-gray-700"
@@ -114,6 +122,8 @@ function Register(props) {
       id="examplePassword0"
       placeholder="Password input"
     />
+              <h2 className='text-center text-md text-red-600'>{errors?errors.password:''}</h2>
+
   </div>
   <div className="mb-3 xl:w-96">
     <label for="examplePassword0" className="form-label inline-block mb-2 text-gray-700"
@@ -143,9 +153,11 @@ function Register(props) {
       id="examplePassword0"
       placeholder="Confirm Password"
     />
+              <h2 className='text-center text-md text-red-600'>{errors?errors.confirmPassword:''}</h2>
+
   </div>
   <div className="flex space-x-2 justify-center mb-3">
-  <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"  onClick={handleSubmit}>Register</button>
+  <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"  onClick={handleSubmit}>{loading?<Loading/>:<span>Register</span>}</button>
 </div>
 
 </div>

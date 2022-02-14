@@ -11,7 +11,20 @@ function Login(props) {
 
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-const {loading}=props.UI;
+const {loading,errors}=props.UI;
+const Loading = () => {
+    let circleCommonClasses = 'h-2.5 w-2.5 bg-current  rounded-full';
+
+    return (
+        <div className='flex justify-center py-2'>
+            <div className={`${circleCommonClasses} mr-1 animate-bounce`}></div>
+            <div
+                className={`${circleCommonClasses} mr-1 animate-bounce200`}
+            ></div>
+            <div className={`${circleCommonClasses} animate-bounce400`}></div>
+        </div>
+    );
+};
     const handleSubmit=()=>{
       
 
@@ -27,7 +40,7 @@ const {loading}=props.UI;
 <div className='w-4/5 md:w-1/3 shadow-2xl m-auto mb-10 mt-5 py-5'>
 <UserAddIcon className="h-12 w-12 mx-auto"/>
 <h1 className='text-2xl font-bold pb-3 text-center text-dark-blue'>Login Here</h1>
-<h1 className='text-center text-lg'>Remember Everything important</h1>
+<h1 className='text-center text-lg'>{errors?<h2 className='text-center text-md text-red-600'>{errors.general}</h2>:<span>Complete this form correctly</span>}</h1>
 <div className="flex flex-col justify-center ml-8">
   <div className="mb-3 xl:w-96">
     <label for="exampleEmail0" className="form-label inline-block mb-2 text-gray-700"
@@ -57,6 +70,8 @@ const {loading}=props.UI;
 onChange={(event)=>setEmail(event.target.value)}
       placeholder="Email input"
     />
+          <h2 className='text-center text-md text-red-600'>{errors?errors.email:''}</h2>
+
   </div>
   <div className="mb-3 xl:w-96">
     <label for="examplePassword0" className="form-label inline-block mb-2 text-gray-700"
@@ -86,6 +101,8 @@ onChange={(event)=>setEmail(event.target.value)}
       id="examplePassword0"
       placeholder="Password input"
     />
+              <h2 className='text-center text-md text-red-600'>{errors?errors.password:''}</h2>
+
   </div>
   <div className="flex space-x-2 justify-center mb-3">
 
@@ -93,9 +110,7 @@ onChange={(event)=>setEmail(event.target.value)}
    text-white font-medium text-xs leading-tight uppercase rounded shadow-md 
    hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none
     focus:ring-0 active:bg-blue-800 active:shadow-lg 
-    transition duration-150 ease-in-out" onClick={handleSubmit}>{loading?<MutatingDots className='text-white'
-    color='00BFFF' height={30} width={30}
-     ariaLabel='loading'/>:<span>Login</span>}</button>
+    transition duration-150 ease-in-out" onClick={handleSubmit}>{loading?<Loading/>:<span>Login</span>}</button>
 </div>
 
 </div>
