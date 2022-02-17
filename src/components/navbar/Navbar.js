@@ -64,7 +64,7 @@ const registerClick=()=>{
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                 
-                 <h1 className='text-xl font-bold pb-3 text-center text-white'>Bloow Africa</h1>
+                 <h1 className='text-xl font-bold pb-3 text-center text-white'>Bloow</h1>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
