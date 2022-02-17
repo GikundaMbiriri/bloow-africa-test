@@ -56,7 +56,7 @@ if(el && !audioRefs.current.includes(el)){
       
         {!!songs[0]?songs.map((song)=>
   <AudioPlayer ref={addToRefs}
-  className=' h-55 my-5 drop-shadow-md hover:drop-shadow-2xl '
+  className=' h-55 my-5 drop-shadow-md hover:drop-shadow-xl '
   
    
     header={<div className='flex justify-between'><div className='w-1/2'>
