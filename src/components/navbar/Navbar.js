@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Disclosure} from '@headlessui/react'
-import {  MenuIcon, XIcon,Logout } from '@heroicons/react/outline'
+import {  MenuIcon, XIcon,LogoutIcon as Logout } from '@heroicons/react/outline'
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../redux/actions/userAction";
 import PropTypes from "prop-types";
