@@ -123,7 +123,7 @@ const registerClick=()=>{
               {authenticated?<div data-testid='credentials' className="absolute inset-y-0 right-0 flex align-center items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           
 
-                                                <h1 className='text-sm italic pb-3 pr-3 text-center text-white'>{credentials.username}</h1>
+                                                <h1 className='text-sm italic pb-3 pr-2 text-center text-white'>{credentials.username}</h1>
 
                                                 <button data-testid='logout' 
                   type="button" onClick={props.logoutUser}
