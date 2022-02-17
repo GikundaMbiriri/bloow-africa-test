@@ -40,8 +40,8 @@ const unlikeSong=(song)=>{
 }
   return (
     <>
-    <div className='md:w-2/5 pr-5 pt-5 m-auto w-11/12 overflow-x-hidden'>
-        <h1 className='text-2xl font-bold pb-3 text-center text-yellow-600'>Cool Songs</h1>
+    <div className='md:w-2/5 pr-5 pt-5 mx-auto w-11/12 overflow-x-hidden'>
+        <h1 className='text-2xl font-bold pb-3  text-center text-yellow-600'>Cool Songs</h1>
         {!!songs[0]?songs.map((song)=>
   <AudioPlayer
   className=' h-55 my-5'
@@ -52,8 +52,8 @@ const unlikeSong=(song)=>{
       </div><div className='flex justify-around items-center w-3/10 px-2'>
       {!authenticated?(<Link to='/login'><div data-testid='borderedHeart'><Heart className="h-6 w-6 text-black cursor-pointer" /></div></Link>):
         (likedSong(song)?
-        (<HeartIcon className="h-6 w-6 text-dark-blue cursor-pointer" data-testid='filledHeart' onClick={()=>unlikeSong(song)}/>):
-        (<Heart className="h-6 w-6 text-black cursor-pointer" onClick={()=>likeSong(song)}/>))} <div>{song.likeCount}</div> 
+        (<HeartIcon className="h-6 w-6 text-red-700 cursor-pointer" data-testid='filledHeart' onClick={()=>unlikeSong(song)}/>):
+        (<Heart className="h-6 w-6 text-black cursor-pointer" onClick={()=>likeSong(song)}/>))} <div className='text-red-700'>{song.likeCount}</div> 
        </div></div>}
  key={song.songId}
     src={song.songUrl}
@@ -61,7 +61,7 @@ const unlikeSong=(song)=>{
    
   />
         ):songs.length==0?<div datat-testid='emptySongs'>No songs found</div>:
-        <div  className='h-55 w-100 flex justify-between' data-testid='loading'>
+        <div  className='h-100 w-100 flex justify-around items-center' data-testid='loading'>
         <Audio
       className='w-50'
        color='black'

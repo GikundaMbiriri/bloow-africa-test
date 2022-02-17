@@ -6,7 +6,7 @@ function home(props) {
   //const {loading}=props.data;
   return (
     <>
-    <div className="flex flex-row flex-wrap w-screen justify-between overflow-x-hidden">
+    <div className="flex  flex-wrap w-screen justify-between overflow-x-hidden">
        <Banner/>
 <Card/>
 
