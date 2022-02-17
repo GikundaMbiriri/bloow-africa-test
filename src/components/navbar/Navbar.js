@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Disclosure} from '@headlessui/react'
-import {  MenuIcon, XIcon } from '@heroicons/react/outline'
+import {  MenuIcon, XIcon,Logout } from '@heroicons/react/outline'
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../redux/actions/userAction";
 import PropTypes from "prop-types";
@@ -129,7 +129,7 @@ const registerClick=()=>{
                   type="button" onClick={props.logoutUser}
                   className="bg-gray-800 p-1 text-sm font-bold pb-3 text-yellow-600 hover:text-white " 
                 >
-                                                Logout
+                                                <Logout className="block h-6 w-6" aria-hidden="true" />
                 </button>
               </div>:<></>}
             </div>
