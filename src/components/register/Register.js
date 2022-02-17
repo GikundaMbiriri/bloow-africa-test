@@ -34,7 +34,7 @@ const {errors}=props.UI;
 <h1 className='text-center text-lg'>Complete this form correctly</h1>
 <div className="flex flex-col justify-center ml-8">
 <div className="mb-3 xl:w-96">
-    <label htmlFor="exampleEmail0" className="form-label inline-block mb-2 text-gray-700"
+    <label htmlFor="Username" className="form-label inline-block mb-2 text-gray-700"
       >Username input</label>
     <input
       type="text"
@@ -57,7 +57,7 @@ const {errors}=props.UI;
       "
       value={username}
       onChange={(event)=>setUsername(event.target.value)}
-      id="exampleEmail0"
+      id="Username"
       data-testid='usernameid'
       placeholder="Username input"
     />
@@ -65,7 +65,7 @@ const {errors}=props.UI;
 
   </div>
   <div className="mb-3 xl:w-96">
-    <label htmlFor="exampleEmail0" className="form-label inline-block mb-2 text-gray-700"
+    <label htmlFor="Email0" className="form-label inline-block mb-2 text-gray-700"
       >Email input</label
     >
     <input
@@ -87,7 +87,7 @@ const {errors}=props.UI;
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
-      id="exampleEmail0"
+      id="Email0"
       value={email}
       data-testid='emailid'
       onChange={(event)=>setEmail(event.target.value)}
@@ -97,7 +97,7 @@ const {errors}=props.UI;
 
   </div>
   <div className="mb-3 xl:w-96">
-    <label htmlFor="examplePassword0" className="form-label inline-block mb-2 text-gray-700"
+    <label htmlFor="Password0" className="form-label inline-block mb-2 text-gray-700"
       >Password input</label
     >
     <input
@@ -121,7 +121,7 @@ const {errors}=props.UI;
       "
       value={password}
       onChange={(event)=>setPassword(event.target.value)}
-      id="examplePassword0"
+      id="Password0"
       data-testid='passwordid'
       placeholder="Password input"
     />
@@ -129,7 +129,7 @@ const {errors}=props.UI;
 
   </div>
   <div className="mb-3 xl:w-96">
-    <label htmlFor="examplePassword0" className="form-label inline-block mb-2 text-gray-700"
+    <label htmlFor="cPassword0" className="form-label inline-block mb-2 text-gray-700"
       >Confirm Password</label
     >
     <input
@@ -154,7 +154,7 @@ const {errors}=props.UI;
       value={confirmPassword}
       onChange={(event)=>setCpassword(event.target.value)}
       data-testid='cpasswordid'
-      id="examplePassword0"
+      id="cPassword0"
       placeholder="Confirm Password"
     />
               <h2 className='text-center text-md text-red-600' data-testid='econfirmPassword'>{errors?errors.confirmPassword:''}</h2>

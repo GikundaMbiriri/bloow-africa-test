@@ -2,15 +2,15 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="md:w-2/5 pr-5 pt-5 m-auto w-11/12 overflow-x-hidden"
+  className="md:w-2/5 pr-5 pt-5 mx-auto w-11/12 overflow-x-hidden"
 >
   <h1
-    className="text-2xl font-bold pb-3 text-center text-yellow-600"
+    className="text-2xl font-bold pb-3  text-center text-yellow-600"
   >
     Cool Songs
   </h1>
   <div
-    className="h-55 w-100 flex justify-between"
+    className="h-100 w-100 flex justify-around items-center"
     data-testid="loading"
   >
     <div

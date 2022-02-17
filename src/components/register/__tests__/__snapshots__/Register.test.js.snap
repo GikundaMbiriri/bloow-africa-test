@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
     >
       <label
         className="form-label inline-block mb-2 text-gray-700"
-        htmlFor="exampleEmail0"
+        htmlFor="Username"
       >
         Username input
       </label>
@@ -56,7 +56,7 @@ exports[`renders correctly 1`] = `
  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
  "
         data-testid="usernameid"
-        id="exampleEmail0"
+        id="Username"
         onChange={[Function]}
         placeholder="Username input"
         type="text"
@@ -74,7 +74,7 @@ exports[`renders correctly 1`] = `
     >
       <label
         className="form-label inline-block mb-2 text-gray-700"
-        htmlFor="exampleEmail0"
+        htmlFor="Email0"
       >
         Email input
       </label>
@@ -97,7 +97,7 @@ exports[`renders correctly 1`] = `
  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
  "
         data-testid="emailid"
-        id="exampleEmail0"
+        id="Email0"
         onChange={[Function]}
         placeholder="Email input"
         type="email"
@@ -115,7 +115,7 @@ exports[`renders correctly 1`] = `
     >
       <label
         className="form-label inline-block mb-2 text-gray-700"
-        htmlFor="examplePassword0"
+        htmlFor="Password0"
       >
         Password input
       </label>
@@ -138,7 +138,7 @@ exports[`renders correctly 1`] = `
  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
  "
         data-testid="passwordid"
-        id="examplePassword0"
+        id="Password0"
         onChange={[Function]}
         placeholder="Password input"
         type="password"
@@ -156,7 +156,7 @@ exports[`renders correctly 1`] = `
     >
       <label
         className="form-label inline-block mb-2 text-gray-700"
-        htmlFor="examplePassword0"
+        htmlFor="cPassword0"
       >
         Confirm Password
       </label>
@@ -179,7 +179,7 @@ exports[`renders correctly 1`] = `
  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
  "
         data-testid="cpasswordid"
-        id="examplePassword0"
+        id="cPassword0"
         onChange={[Function]}
         placeholder="Confirm Password"
         type="password"

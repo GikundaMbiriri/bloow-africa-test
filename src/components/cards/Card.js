@@ -1,7 +1,7 @@
-import React , { useEffect } from 'react'
+import React , { useEffect ,useRef } from 'react'
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import { HeartIcon,ShareIcon } from '@heroicons/react/solid'
+import { HeartIcon } from '@heroicons/react/solid'
 import { HeartIcon as Heart } from '@heroicons/react/outline'
 import './card.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -15,7 +15,10 @@ function Card(props) {
   useEffect(() => {
     props.getSongs();
   }, []);
-  const { songs, loading } = props.data;
+  const audioRefs=useRef([]);
+  audioRefs.current=[];
+
+  const { songs,  } = props.data;
   const { authenticated, likes } = props.user;
 
 const likedSong=(song)=>{
@@ -38,13 +41,22 @@ const likeSong=(song)=>{
 const unlikeSong=(song)=>{
   props.unlikeSong(song.songId)
 }
+const addToRefs=(el)=>{
+if(el && !audioRefs.current.includes(el)){
+  audioRefs.current.push(el)
+ 
+}
+}
+
+
   return (
     <>
     <div className='md:w-2/5 pr-5 pt-5 mx-auto w-11/12 overflow-x-hidden'>
         <h1 className='text-2xl font-bold pb-3  text-center text-yellow-600'>Cool Songs</h1>
+      
         {!!songs[0]?songs.map((song)=>
-  <AudioPlayer
-  className=' h-55 my-5'
+  <AudioPlayer ref={addToRefs}
+  className=' h-55 my-5 drop-shadow-md hover:drop-shadow-2xl '
   
    
     header={<div className='flex justify-between'><div className='w-1/2'>
@@ -57,7 +69,7 @@ const unlikeSong=(song)=>{
        </div></div>}
  key={song.songId}
     src={song.songUrl}
-    onPlay={e => console.log("onPlay")}
+    onPlay={e => audioRefs.current[0].handleMuteChange()}
    
   />
         ):songs.length==0?<div datat-testid='emptySongs'>No songs found</div>:

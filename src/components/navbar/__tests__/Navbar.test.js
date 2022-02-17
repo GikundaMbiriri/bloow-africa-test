@@ -6,9 +6,7 @@ import renderer from 'react-test-renderer';
 import store from '../../../redux/store';
 import {Provider} from 'react-redux';
 import { HashRouter as Router } from "react-router-dom";
-store['user']={
-    authenticated:false
-}
+
 const render=component=>rtlRender(
     <Provider store={store}>
         <Router>
@@ -39,32 +37,17 @@ describe('Navbar',()=>{
         expect(screen.getByTestId('home')).toBeInTheDocument()
     })
     test('login button appears only for unauthenticated users',()=>{
+        let state=store.getState()
+        state.user['authenticated']=false;
         render(<Navbar/>)
         expect(screen.getByTestId('login')).toBeInTheDocument()
     })
     test('register button appears only for unauthenticated users',()=>{
+        let state=store.getState()
+        state.user['authenticated']=false;
         render(<Navbar/>)
         expect(screen.getByTestId('register')).toBeInTheDocument()
     })
-    test('register button appears only for unauthenticated users',()=>{
-        render(<Navbar/>)
-        expect(screen.getByTestId('register')).toBeInTheDocument()
-    })
-    test('register button appears only for unauthenticated users',()=>{
-        render(<Navbar/>)
-       if(store.user.authenticated){
-       
- 
-        expect(screen.getByTestId('logout')).toBeInTheDocument()
 
-       
-
-       }
-else{
-
-    const credentials = screen.queryByTestId('credentials')
-    expect(credentials).toBeNull() 
-}
-        
-    })
+   
 })

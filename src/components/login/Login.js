@@ -6,24 +6,13 @@ import { loginUser } from "../../redux/actions/userAction";
 import PropTypes from "prop-types";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { withRouter } from 'react-router-dom';
+import { Loading } from '../Loading';
 function Login(props) {
 
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
 const {loading,errors}=props.UI;
-const Loading = () => {
-    let circleCommonClasses = 'h-2.5 w-2.5 bg-current  rounded-full';
 
-    return (
-        <div className='flex justify-center py-2'>
-            <div className={`${circleCommonClasses} mr-1 animate-bounce`}></div>
-            <div
-                className={`${circleCommonClasses} mr-1 animate-bounce200`}
-            ></div>
-            <div className={`${circleCommonClasses} animate-bounce400`}></div>
-        </div>
-    );
-};
     const handleSubmit=()=>{
       
 
@@ -42,7 +31,7 @@ const Loading = () => {
 <h1 className='text-center text-lg' data-testid='egeneral'>{errors?<span className='text-center text-md text-red-600' >{errors.general}</span>:<span>Complete this form correctly</span>}</h1>
 <div className="flex flex-col justify-center ml-8">
   <div className="mb-3 xl:w-96">
-    <label htmlFor="exampleEmail0" className="form-label inline-block mb-2 text-gray-700"
+    <label htmlFor="Email0" className="form-label inline-block mb-2 text-gray-700"
       >Email input</label
     >
     <input
@@ -64,7 +53,7 @@ const Loading = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
-      id="exampleEmail0"
+      id="Email0"
       data-testid="emailId"
       value={email}
 onChange={(event)=>setEmail(event.target.value)}
@@ -75,7 +64,7 @@ onChange={(event)=>setEmail(event.target.value)}
 
   </div>
   <div className="mb-3 xl:w-96">
-    <label htmlFor="examplePassword0" className="form-label inline-block mb-2 text-gray-700"
+    <label htmlFor="Password0" className="form-label inline-block mb-2 text-gray-700"
       >Password input</label
     >
     <input
@@ -100,7 +89,7 @@ onChange={(event)=>setEmail(event.target.value)}
       value={password}
       data-testid='passwordId'
       onChange={(event)=>setPassword(event.target.value)}
-      id="examplePassword0"
+      id="Password0"
       placeholder="Password input"
     />
               <h2 className='text-center text-md text-red-600' data-testid='epassword'>{errors?errors.password:''}</h2>

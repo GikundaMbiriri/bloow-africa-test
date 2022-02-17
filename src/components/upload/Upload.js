@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { uploadSong } from "../../redux/actions/dataAction";
 import { withRouter } from 'react-router-dom';
-import {Loading, loading} from '../Loading';
+import {Loading} from '../Loading';
 function Upload(props) {
     const {authenticated}=props.user;
     const [song,setSong]=useState({});

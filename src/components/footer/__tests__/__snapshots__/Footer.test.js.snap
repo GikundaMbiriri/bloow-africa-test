@@ -13,7 +13,7 @@ exports[`renders correctly 1`] = `
       © 2022 Copyright:
       <a
         className="text-gray-800"
-        href="https://tailwind-elements.com/"
+        href="/"
       >
         Bloow Africa
       </a>
