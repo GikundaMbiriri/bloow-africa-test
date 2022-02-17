@@ -4,7 +4,7 @@ import music1 from '../../images/music1.jpg';
 import music2 from '../../images/music2.jpg';
 import music3 from '../../images/music3.jpg';
 import './banner.css';
-import About from '../About'
+import About from '../about/About'
 import 'react-slideshow-image/dist/styles.css'
 const fadeImages = [
 music1,music2,music3,music2
@@ -27,7 +27,7 @@ const Banner = () => {
       <Fade {...fadeProperties} >
         <div className="each-fade">
           <div className="image-container">
-            <img src={fadeImages[0]} className='w-full overflow-hidden ' style={{height:"60vh",objectFit:"cover"}} alt="banner" />
+            <img src={fadeImages[0]} data-testid="image0" className='w-full overflow-hidden ' alt='banner image' style={{height:"60vh",objectFit:"cover"}}  />
             <div className="kemikal"/>
           
           </div>
@@ -35,7 +35,7 @@ const Banner = () => {
         </div>
         <div className="each-fade">
           <div className="image-container">
-            <img src={fadeImages[1]} className='w-full overflow-hidden ' style={{height:"60vh",objectFit:"cover"}} alt="banner" />
+            <img src={fadeImages[1]} data-testid="image" className='w-full overflow-hidden ' alt='banner image'  style={{height:"60vh",objectFit:"cover"}}  />
             <div className="kemikal"/>
             
           </div>
@@ -43,7 +43,7 @@ const Banner = () => {
         </div>
         <div className="each-fade">
           <div className="image-container">
-            <img src={fadeImages[2]} className='w-full overflow-hidden ' style={{height:"60vh",objectFit:"cover"}} alt="banner" />
+            <img src={fadeImages[2]} data-testid="image2" className='w-full overflow-hidden ' alt='banner image' style={{height:"60vh",objectFit:"cover"}}  />
             <div className="kemikal"/>
             
             

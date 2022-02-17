@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { uploadSong } from "../redux/actions/dataAction";
+import { uploadSong } from "../../redux/actions/dataAction";
 import { withRouter } from 'react-router-dom';
-import {Loading, loading} from './Loading';
+import {Loading, loading} from '../Loading';
 function Upload(props) {
     const {authenticated}=props.user;
     const [song,setSong]=useState({});
@@ -11,7 +11,6 @@ function Upload(props) {
     const {loading}=props.data;
 
     useEffect(()=>{
-console.log(authenticated)
         if(!authenticated){
 props.history.push('/login')
         }
@@ -40,7 +39,7 @@ props.history.push('/login')
 <div className="flex flex-col justify-center ml-8">
 
   <div className="mb-3 xl:w-96">
-    <label for="formFile" className="form-label inline-block mb-2 text-gray-700">Upload Song</label>
+    <label htmlFor="formFile" className="form-label inline-block mb-2 text-gray-700">Upload Song</label>
     <input 
       className="
         form-control
@@ -69,7 +68,9 @@ props.history.push('/login')
 
   
   <div className="flex space-x-2 justify-center mb-3">
-  <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" onClick={handleSubmit}>{loading?<Loading/>:<span>Upload</span>}</button>
+  <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" 
+  data-testid='uploadid'
+  onClick={handleSubmit}>{loading?<Loading/>:<span>Upload</span>}</button>
 </div>
 
 </div>

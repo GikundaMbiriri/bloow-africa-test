@@ -14,7 +14,6 @@ const store = createStore(
   reducers,
   initialState,
   compose(applyMiddleware(...middleware)
-  
     )
 );
 export default store;

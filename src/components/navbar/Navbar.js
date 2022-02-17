@@ -76,7 +76,7 @@ const registerClick=()=>{
                           home ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
-                       onClick={homeClick}
+                       onClick={homeClick} data-testid='home'
                       >
                       Home
                       </Link>
@@ -100,12 +100,12 @@ const registerClick=()=>{
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         onClick={loginClick}
-
+                        data-testid='login'
                       >
                       Login
                       </Link>
                       <Link
-                      
+                      data-testid='register'
                         to='/register'
                         className={classNames(
                           register ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -120,14 +120,14 @@ const registerClick=()=>{
                   </div>
                 </div>
               </div>
-              {authenticated?<div className="absolute inset-y-0 right-0 flex align-center items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              {authenticated?<div data-testid='credentials' className="absolute inset-y-0 right-0 flex align-center items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           
 
                                                 <h1 className='text-sm font-bold pb-3 pr-3 text-center text-white'>{credentials.username}</h1>
 
-                                                <button
+                                                <button data-testid='logout' 
                   type="button" onClick={props.logoutUser}
-                  className="bg-gray-800 p-1 text-sm font-bold pb-3 text-yellow-600 hover:text-white "
+                  className="bg-gray-800 p-1 text-sm font-bold pb-3 text-yellow-600 hover:text-white " 
                 >
                                                 Logout
                 </button>
@@ -168,7 +168,7 @@ const registerClick=()=>{
                   )}
                  
                 >
-                <Link   to='/login'  onClick={loginClick}>
+                <Link   to='/login'  onClick={loginClick} >
                  Login</Link>
                 </Disclosure.Button>
                 <Disclosure.Button

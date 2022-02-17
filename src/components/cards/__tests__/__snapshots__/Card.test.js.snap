@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="md:w-2/5 pr-5 pt-5 m-auto w-11/12 overflow-x-hidden"
+>
+  <h1
+    className="text-2xl font-bold pb-3 text-center text-yellow-600"
+  >
+    Cool Songs
+  </h1>
+  <div
+    className="h-55 w-100 flex justify-between"
+    data-testid="loading"
+  >
+    <div
+      data-testid="audio-loading"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <svg
+        aria-label="loading"
+        data-testid="audio-svg"
+        fill="black"
+        height="100"
+        viewBox="0 0 55 80"
+        width="100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          transform="matrix(1 0 0 -1 0 80)"
+        >
+          <rect
+            height="20"
+            rx="3"
+            width="10"
+          >
+            <animate
+              attributeName="height"
+              begin="0s"
+              calcMode="linear"
+              dur="4.3s"
+              repeatCount="indefinite"
+              values="20;45;57;80;64;32;66;45;64;23;66;13;64;56;34;34;2;23;76;79;20"
+            />
+          </rect>
+          <rect
+            height="80"
+            rx="3"
+            width="10"
+            x="15"
+          >
+            <animate
+              attributeName="height"
+              begin="0s"
+              calcMode="linear"
+              dur="2s"
+              repeatCount="indefinite"
+              values="80;55;33;5;75;23;73;33;12;14;60;80"
+            />
+          </rect>
+          <rect
+            height="50"
+            rx="3"
+            width="10"
+            x="30"
+          >
+            <animate
+              attributeName="height"
+              begin="0s"
+              calcMode="linear"
+              dur="1.4s"
+              repeatCount="indefinite"
+              values="50;34;78;23;56;23;34;76;80;54;21;50"
+            />
+          </rect>
+          <rect
+            height="30"
+            rx="3"
+            width="10"
+            x="45"
+          >
+            <animate
+              attributeName="height"
+              begin="0s"
+              calcMode="linear"
+              dur="2s"
+              repeatCount="indefinite"
+              values="30;45;13;80;56;72;45;76;34;23;67;30"
+            />
+          </rect>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div
+    className="block md:hidden"
+  >
+    <div
+      className="w-full"
+    >
+      <h1
+        className="text-2xl font-bold py-3 text-center text-dark-blue"
+      >
+        About Bloow Africa
+      </h1>
+      <ul
+        className="list-disc w-2/3 m-auto"
+      >
+        <li
+          className="pb-2"
+        >
+          We  aim at developing the best music platform for artists world wide and locally.
+        </li>
+        <li
+          className="pb-2"
+        >
+          We  aim at developing the best music platform for artists world wide and locally.
+        </li>
+        <li
+          className="pb-2"
+        >
+          We  aim at developing the best music platform for artists world wide and locally.
+        </li>
+        <li
+          className="pb-2"
+        >
+          We  aim at developing the best music platform for artists world wide and locally.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

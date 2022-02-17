@@ -9,7 +9,7 @@ import store from "./redux/store";
 import jwtDecode from "jwt-decode";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './components/navbar/Navbar'
-import Footer from './components/Footer';
+import Footer from './components/footer/Footer';
 import { SET_AUTHENTICATED } from "./redux/types";
 import axios from "axios";
 
