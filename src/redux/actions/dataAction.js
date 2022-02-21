@@ -13,7 +13,7 @@ import {
   export const getSongs = () => (dispatch) => {
     dispatch({ type: LOADING_DATA });
     axios
-      .get("https://us-central1-safarixpertsapp.cloudfunctions.net/api/songs")
+      .get("https://us-central1-pizzesadmin.cloudfunctions.net/api/songs")
       .then((res) => {
         dispatch({
           type: SET_SONGS,
@@ -32,7 +32,7 @@ import {
   export const likeSong = (songId) => (dispatch) => {
     axios
       .get(
-        `https://us-central1-safarixpertsapp.cloudfunctions.net/api/like/${songId}`
+        `https://us-central1-pizzesadmin.cloudfunctions.net/api/like/${songId}`
       )
       .then((res) => {
         dispatch({
@@ -45,7 +45,7 @@ import {
   };
   export const unlikeSong = (songId) => (dispatch) => {
     axios
-      .get(`https://us-central1-safarixpertsapp.cloudfunctions.net/api/unlike/${songId}`)
+      .get(`https://us-central1-pizzesadmin.cloudfunctions.net/api/unlike/${songId}`)
       .then((res) => {
         dispatch({
           type: UNLIKE_SONG,
@@ -69,7 +69,7 @@ import {
 dispatch({type:LOADING_DATA});
     axios
       .post(
-        "https://us-central1-safarixpertsapp.cloudfunctions.net/api/uploadsong",
+        "https://us-central1-pizzesadmin.cloudfunctions.net/api/uploadsong",
         formData
       )
       .then(() => {

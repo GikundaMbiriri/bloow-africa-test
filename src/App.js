@@ -16,7 +16,7 @@ import axios from "axios";
 import { logoutUser, getUserData } from "./redux/actions/userAction";
 import { ToastProvider } from 'react-toast-notifications';
 axios.defaults.baseURL =
-  "https://us-central1-safarixpertsapp.cloudfunctions.net/api/";
+  "https://us-central1-pizzesadmin.cloudfunctions.net/api/";
 function App() {
   
   const token = localStorage.FBIdToken;

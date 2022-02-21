@@ -12,7 +12,7 @@ import {
     dispatch({ type: LOADING_UI });
     axios
       .post(
-        "https://us-central1-safarixpertsapp.cloudfunctions.net/api/login",
+        "https://us-central1-pizzesadmin.cloudfunctions.net/api/login",
         userData
       )
       .then((res) => {
@@ -35,7 +35,7 @@ import {
   export const signupUser = (newUserData, history) => (dispatch) => {
     dispatch({ type: LOADING_UI });
     axios
-      .post("https://us-central1-safarixpertsapp.cloudfunctions.net/api/signup", newUserData)
+      .post("https://us-central1-pizzesadmin.cloudfunctions.net/api/signup", newUserData)
       .then((res) => {
         const FBIdToken = `Bearer ${res.data.token}`;
         localStorage.setItem("FBIdToken", FBIdToken);
